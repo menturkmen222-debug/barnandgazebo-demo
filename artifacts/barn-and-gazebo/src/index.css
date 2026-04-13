@@ -2657,6 +2657,14 @@ body {
   .grounds-grid {
     grid-template-columns: 1fr 1fr;
   }
+
+  .alternating-text {
+    padding: 60px 40px;
+  }
+
+  .section-centered {
+    padding: 80px 40px;
+  }
 }
 
 @media (max-width: 768px) {
@@ -2665,7 +2673,12 @@ body {
   }
 
   .nav.scrolled {
-    padding: 16px 24px;
+    padding: 14px 24px;
+  }
+
+  .container,
+  .container-narrow {
+    padding: 0 20px;
   }
 
   .pillars-section,
@@ -2681,11 +2694,59 @@ body {
   .accordion-section,
   .booking-process,
   .availability-section,
-  .masonry-gallery,
   .contact-info-col,
   .contact-form-col {
     padding-left: 24px;
     padding-right: 24px;
+  }
+
+  .pillars-section,
+  .gallery-teaser,
+  .journal-section {
+    padding-top: 72px;
+    padding-bottom: 72px;
+  }
+
+  .packages-section,
+  .testimonials-section,
+  .accordion-section,
+  .booking-process,
+  .venue-specs,
+  .grounds-section {
+    padding-top: 64px;
+    padding-bottom: 64px;
+  }
+
+  .addons-section,
+  .cta-strip {
+    padding-top: 64px;
+    padding-bottom: 64px;
+  }
+
+  .availability-section {
+    padding-top: 56px;
+    padding-bottom: 56px;
+  }
+
+  .contact-info-col,
+  .contact-form-col {
+    padding-top: 56px;
+    padding-bottom: 56px;
+  }
+
+  .packages-intro {
+    padding-top: 48px;
+    padding-bottom: 48px;
+  }
+
+  .masonry-gallery {
+    columns: 2;
+    padding: 0 24px 48px;
+  }
+
+  .filter-bar {
+    padding: 0 24px;
+    margin: 40px 0 32px;
   }
 
   .footer-body {
@@ -2695,10 +2756,9 @@ body {
 
   .footer-bottom {
     padding: 20px 24px;
-  }
-
-  .masonry-gallery {
-    columns: 2;
+    flex-direction: column;
+    gap: 12px;
+    text-align: center;
   }
 
   .addons-grid {
@@ -2707,6 +2767,11 @@ body {
 
   .booking-steps {
     grid-template-columns: 1fr;
+    gap: 36px;
+  }
+
+  .stats-section {
+    padding: 56px 0;
   }
 
   .stats-grid {
@@ -2717,8 +2782,13 @@ body {
     display: none;
   }
 
+  .stat-number {
+    font-size: 3rem;
+  }
+
   .form-row {
     grid-template-columns: 1fr;
+    gap: 0;
   }
 
   .packages-grid {
@@ -2727,31 +2797,70 @@ body {
 
   .gallery-grid {
     grid-template-columns: 1fr;
+    grid-template-rows: auto;
   }
 
   .gallery-item:first-child {
     grid-column: span 1;
-    height: 280px;
+    height: 260px;
+  }
+
+  .gallery-item {
+    height: 220px;
   }
 
   .hero-title {
-    font-size: clamp(2.5rem, 8vw, 4rem);
+    font-size: clamp(2.4rem, 9vw, 4rem);
   }
 
   .hero-subtitle {
-    font-size: 1.1rem;
+    font-size: 1.05rem;
+    padding: 0 8px;
   }
 
   .hero-buttons {
     flex-direction: column;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .hero-buttons .btn-primary,
+  .hero-buttons .btn-secondary {
+    width: 100%;
+    max-width: 320px;
+    justify-content: center;
+  }
+
+  .quote-text {
+    font-size: 1.35rem;
+  }
+
+  .quote-break {
+    height: 380px;
   }
 
   .cta-strip-title {
-    font-size: 2rem;
+    font-size: 1.9rem;
   }
 
-  .filter-bar {
-    padding: 0 24px;
+  .cta-strip-text {
+    font-size: 0.92rem;
+  }
+
+  .section-h2 {
+    font-size: 2.1rem;
+  }
+
+  .section-h2-lg {
+    font-size: 2.3rem;
+  }
+
+  .section-centered {
+    padding: 64px 24px;
+  }
+
+  .section-header-centered {
+    margin-bottom: 40px;
   }
 
   .grounds-grid {
@@ -2762,21 +2871,279 @@ body {
     padding: 48px 24px;
   }
 
-  .journal-featured-body {
+  .editorial-image-col {
+    min-height: 300px;
+  }
+
+  .alternating-text {
     padding: 48px 24px;
   }
 
+  .alternating-image {
+    min-height: 300px;
+  }
+
+  .journal-featured-body {
+    padding: 40px 24px;
+  }
+
   .journal-featured-title {
-    font-size: 1.8rem;
+    font-size: 1.75rem;
   }
 
   .journal-page-grid {
     padding: 0 24px 48px;
+    margin-top: 48px;
   }
 
   .specs-table {
     padding: 0;
   }
+
+  .package-card {
+    padding: 40px 28px;
+  }
+
+  .pillar-body {
+    padding: 28px 24px;
+  }
+
+  .testimonials-section {
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+
+  .calendar-month {
+    padding: 24px 16px;
+  }
+
+  .calendar-day {
+    height: 38px;
+    font-size: 0.82rem;
+  }
+
+  .selected-date-box {
+    flex-direction: column;
+    gap: 8px;
+    text-align: center;
+    padding: 20px 24px;
+  }
+
+  .lightbox-img {
+    max-width: 96vw;
+    max-height: 80vh;
+  }
+
+  .lightbox-caption {
+    white-space: normal;
+    text-align: center;
+    padding: 0 48px;
+  }
+
+  .mobile-menu-link {
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .nav {
+    padding: 18px 20px;
+  }
+
+  .nav.scrolled {
+    padding: 12px 20px;
+  }
+
+  .nav-wordmark-title {
+    font-size: 1rem;
+  }
+
+  .hero-title {
+    font-size: clamp(2rem, 10vw, 3rem);
+  }
+
+  .hero-subtitle {
+    font-size: 0.97rem;
+  }
+
+  .hero-buttons .btn-primary,
+  .hero-buttons .btn-secondary {
+    max-width: 100%;
+    padding: 14px 24px;
+  }
+
+  .hero-eyebrow-line {
+    width: 28px;
+  }
+
+  .quote-text {
+    font-size: 1.15rem;
+  }
+
+  .quote-break {
+    height: 320px;
+  }
+
+  .section-h2 {
+    font-size: 1.85rem;
+  }
+
+  .cta-strip-title {
+    font-size: 1.65rem;
+  }
+
+  .stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .stat-number {
+    font-size: 2.5rem;
+  }
+
+  .stat-item {
+    padding: var(--space-6);
+  }
+
+  .masonry-gallery {
+    columns: 1;
+    padding: 0 20px 40px;
+  }
+
+  .filter-bar {
+    padding: 0 20px;
+    gap: 4px;
+  }
+
+  .filter-btn {
+    padding: 8px 14px;
+    font-size: 0.7rem;
+  }
+
+  .pillars-section,
+  .packages-section,
+  .gallery-teaser,
+  .testimonials-section,
+  .journal-section,
+  .cta-strip,
+  .venue-specs,
+  .grounds-section,
+  .packages-intro,
+  .addons-section,
+  .accordion-section,
+  .booking-process,
+  .availability-section,
+  .contact-info-col,
+  .contact-form-col {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  .footer-body {
+    padding: 40px 20px;
+  }
+
+  .footer-bottom {
+    padding: 18px 20px;
+  }
+
+  .journal-featured-body {
+    padding: 32px 20px;
+  }
+
+  .journal-page-grid {
+    padding: 0 20px 40px;
+  }
+
+  .editorial-text-col {
+    padding: 40px 20px;
+  }
+
+  .alternating-text {
+    padding: 40px 20px;
+  }
+
+  .gallery-item {
+    height: 200px;
+  }
+
+  .gallery-item:first-child {
+    height: 220px;
+  }
+
+  .package-card {
+    padding: 32px 20px;
+  }
+
+  .pillar-body {
+    padding: 24px 20px;
+  }
+
+  .contact-info-col,
+  .contact-form-col {
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 48px;
+    padding-bottom: 48px;
+  }
+
+  .calendar-day {
+    height: 34px;
+    font-size: 0.76rem;
+  }
+
+  .mobile-menu-link {
+    font-size: 1.75rem;
+    gap: var(--space-6);
+  }
+
+  .mobile-menu-links {
+    gap: var(--space-6);
+  }
+
+  .btn-primary,
+  .btn-secondary,
+  .btn-gold-outline {
+    padding: 14px 28px;
+    font-size: 0.74rem;
+  }
+
+  .accordion-title {
+    font-size: 1rem;
+  }
+
+  .testimonial-quote {
+    font-size: 1rem;
+    max-width: 100%;
+  }
+
+  .journal-card-body {
+    padding: 24px 20px;
+  }
+
+  .journal-card-title {
+    font-size: 1.2rem;
+  }
+
+  .booking-step-num {
+    font-size: 2.2rem;
+  }
+
+  .pillar-image {
+    height: 220px;
+  }
+
+  .journal-card-image {
+    height: 200px;
+  }
+
+  .grounds-image {
+    height: 220px;
+  }
+
+  .hero-70 { height: 60vh; }
+  .hero-60 { height: 52vh; }
+  .hero-55 { height: 48vh; }
+  .hero-50 { height: 44vh; }
 }
 
 /* ===========================
