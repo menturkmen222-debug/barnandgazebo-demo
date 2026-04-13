@@ -1,8 +1,0 @@
-{
-  "buildCommand": "pnpm --filter @workspace/barn-and-gazebo run build",
-  "outputDirectory": "artifacts/barn-and-gazebo/dist/public",
-  "installCommand": "pnpm install",
-  "rewrites": [
-    { "source": "/(.*)", "destination": "/index.html" }
-  ]
-}
