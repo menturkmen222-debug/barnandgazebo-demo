@@ -123,18 +123,6 @@ p, span, li, label, input, textarea, select, button {
   font-family: var(--font-body);
 }
 
-button {
-  outline: none;
-  -webkit-tap-highlight-color: transparent;
-  -webkit-appearance: none;
-  appearance: none;
-}
-
-button:focus-visible {
-  outline: 2px solid var(--color-gold);
-  outline-offset: 3px;
-}
-
 a {
   color: var(--color-gold);
   text-decoration: none;
@@ -2702,16 +2690,9 @@ body {
   .availability-section,
   .masonry-gallery,
   .contact-info-col,
-  .contact-form-col,
-  .section-centered,
-  .alternating-text,
-  .journal-featured-body {
+  .contact-form-col {
     padding-left: 24px;
     padding-right: 24px;
-  }
-
-  .stats-section {
-    padding: 60px 24px;
   }
 
   .footer-body {
@@ -2751,15 +2732,6 @@ body {
     max-width: 100%;
   }
 
-  .package-card {
-    padding: 40px 24px;
-  }
-
-  .package-badge {
-    font-size: 0.6rem;
-    padding: 5px 16px;
-  }
-
   .gallery-grid {
     grid-template-columns: 1fr;
   }
@@ -2779,21 +2751,6 @@ body {
 
   .hero-buttons {
     flex-direction: column;
-    width: 100%;
-    align-items: stretch;
-  }
-
-  .hero-buttons .btn-primary,
-  .hero-buttons .btn-secondary {
-    justify-content: center;
-    text-align: center;
-  }
-
-  .btn-primary,
-  .btn-secondary,
-  .btn-gold-outline {
-    padding: 14px 28px;
-    font-size: 0.72rem;
   }
 
   .cta-strip-title {
