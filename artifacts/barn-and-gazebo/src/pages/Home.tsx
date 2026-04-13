@@ -37,10 +37,18 @@ export default function Home() {
         <div
           className="hero-bg parallax-bg"
           style={{
-            backgroundImage: "url('https://images.unsplash.com/photo-1465495976277-4387d4b0b4c6?auto=format&fit=crop&w=1920&q=90')",
+            backgroundImage: "url('https://images.unsplash.com/photo-1510076857177-7470076d4098?auto=format&fit=crop&w=1920&q=90')",
+            backgroundPosition: "center 40%",
           }}
         />
         <div className="hero-overlay" />
+
+        <div className="hero-badge">
+          <span className="hero-badge-line" />
+          <span className="hero-badge-text">Est. 1880</span>
+          <span className="hero-badge-line" />
+        </div>
+
         <div className="hero-content">
           <div className="hero-eyebrow">
             <span className="hero-eyebrow-line" />
@@ -64,6 +72,20 @@ export default function Home() {
             </button>
           </div>
         </div>
+
+        <div className="hero-stats-strip">
+          {[
+            { num: "1880", label: "Est." },
+            { num: "40K+", label: "Pine Trees" },
+            { num: "350", label: "Guests" },
+          ].map((s, i) => (
+            <div key={i} className="hero-stat">
+              <span className="hero-stat-num">{s.num}</span>
+              <span className="hero-stat-label">{s.label}</span>
+            </div>
+          ))}
+        </div>
+
         <div className="hero-bottom-line" />
         <div className="scroll-indicator" aria-label="Scroll down">
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
