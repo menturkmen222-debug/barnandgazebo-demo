@@ -41,6 +41,15 @@ export default function Contact() {
     document.title = "Contact | The Barn and Gazebo — Salem, Ohio";
   }, []);
 
+  useEffect(() => {
+    if (submitted) {
+      const timer = setTimeout(() => {
+        successRef.current?.classList.add("visible");
+      }, 50);
+      return () => clearTimeout(timer);
+    }
+  }, [submitted]);
+
   const update = (field: keyof FormData, value: string | boolean) => {
     setForm((prev) => ({ ...prev, [field]: value }));
     if (errors[field]) setErrors((prev) => { const e = { ...prev }; delete e[field]; return e; });
@@ -71,9 +80,6 @@ export default function Contact() {
     await new Promise((resolve) => setTimeout(resolve, 800));
     setSubmitting(false);
     setSubmitted(true);
-    if (successRef.current) {
-      setTimeout(() => successRef.current?.classList.add("visible"), 50);
-    }
   };
 
   return (
