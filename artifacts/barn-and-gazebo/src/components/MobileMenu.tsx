@@ -1,4 +1,5 @@
 import { useLocation } from "wouter";
+import { CloseIcon, DiamondIcon, OrnamentDividerIcon } from "./Icons";
 
 const navLinks = [
   { label: "Home", path: "/" },
@@ -31,14 +32,13 @@ export default function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
           <span className="mobile-menu-brand-sub">Est. 1880 — Salem, Ohio</span>
         </div>
         <button className="mobile-menu-close" onClick={onClose} aria-label="Close menu">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round">
-            <line x1="18" y1="6" x2="6" y2="18" />
-            <line x1="6" y1="6" x2="18" y2="18" />
-          </svg>
+          <CloseIcon size={20} />
         </button>
       </div>
 
-      <div className="mobile-menu-rule" />
+      <div className="mobile-menu-ornament-rule">
+        <OrnamentDividerIcon width={180} className="mobile-menu-ornament-icon" />
+      </div>
 
       <nav className="mobile-menu-links">
         {navLinks.map((link, i) => (
@@ -48,17 +48,17 @@ export default function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
             onClick={() => handleNav(link.path)}
             style={{ transitionDelay: isOpen ? `${60 + i * 55}ms` : "0ms" }}
           >
+            <span className="mobile-menu-link-num">0{i + 1}</span>
             <span className="mobile-menu-link-label">{link.label}</span>
-            <svg className="mobile-menu-link-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-              <line x1="5" y1="12" x2="19" y2="12" />
-              <polyline points="12 5 19 12 12 19" />
-            </svg>
+            <DiamondIcon size={7} className="mobile-menu-link-diamond" />
           </button>
         ))}
       </nav>
 
       <div className="mobile-menu-footer">
-        <div className="mobile-menu-rule" />
+        <div className="mobile-menu-footer-ornament">
+          <OrnamentDividerIcon width={120} className="mobile-menu-ornament-icon" />
+        </div>
         <button className="mobile-menu-cta" onClick={() => handleNav("/contact")}>
           Begin Your Story
         </button>

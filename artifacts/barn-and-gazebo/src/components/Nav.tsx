@@ -1,5 +1,6 @@
 import { useLocation } from "wouter";
 import { useScrollNav } from "@/hooks/useScrollNav";
+import { DiamondIcon } from "./Icons";
 
 const navLinks = [
   { label: "Home", path: "/" },
@@ -26,16 +27,28 @@ export default function Nav({ onMenuOpen }: NavProps) {
         <span className="nav-wordmark-sub">Est. 1880 — Salem, Ohio</span>
       </div>
 
-      <div className="nav-links">
-        {navLinks.map((link) => (
-          <button
-            key={link.path}
-            className={`nav-link${location === link.path ? " active" : ""}`}
-            onClick={() => navigate(link.path)}
-          >
-            {link.label}
-          </button>
-        ))}
+      <div className="nav-center">
+        <div className="nav-ornament-divider">
+          <span className="nav-ornament-line" />
+          <DiamondIcon size={6} className="nav-ornament-diamond" />
+          <span className="nav-ornament-line" />
+        </div>
+        <div className="nav-links">
+          {navLinks.map((link) => (
+            <button
+              key={link.path}
+              className={`nav-link${location === link.path ? " active" : ""}`}
+              onClick={() => navigate(link.path)}
+            >
+              {link.label}
+              {location === link.path && (
+                <span className="nav-link-active-marker">
+                  <DiamondIcon size={4} />
+                </span>
+              )}
+            </button>
+          ))}
+        </div>
       </div>
 
       <button className="nav-cta" onClick={() => navigate("/contact")}>
@@ -43,9 +56,8 @@ export default function Nav({ onMenuOpen }: NavProps) {
       </button>
 
       <button className="nav-hamburger" onClick={onMenuOpen} aria-label="Open menu">
-        <span />
-        <span />
-        <span />
+        <span className="nav-hamburger-bar" />
+        <span className="nav-hamburger-bar nav-hamburger-bar--short" />
       </button>
     </nav>
   );

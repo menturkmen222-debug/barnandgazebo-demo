@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { useLocation } from "wouter";
+import { DiamondIcon, ChevronDownIcon } from "@/components/Icons";
 
 const accordionItems = [
   {
@@ -143,10 +144,13 @@ export default function Packages() {
               <div className="package-divider" />
               <p className="package-price">{pkg.price}</p>
               <p className="package-price-note">{pkg.note} — starting price</p>
-              <p style={{ fontFamily: "var(--font-body)", fontWeight: 300, fontSize: "0.65rem", letterSpacing: "0.16em", textTransform: "uppercase", color: "var(--color-text-secondary)", margin: "24px 0 12px" }}>What's Included</p>
+              <p className="package-includes-label">What's Included</p>
               <div className="package-features">
                 {pkg.features.map((f) => (
-                  <div key={f} className="package-feature">{f}</div>
+                  <div key={f} className="package-feature">
+                    <DiamondIcon size={6} className="package-feature-icon" />
+                    <span>{f}</span>
+                  </div>
                 ))}
               </div>
               <button
@@ -183,7 +187,10 @@ export default function Packages() {
             { label: "Romance", name: "Honeymoon Suite Decor", desc: "Floral arrangements and styling for your bridal suite or off-site honeymoon accommodation." },
           ].map((item, i) => (
             <div key={item.name} className={`addon-item reveal reveal-delay-${(i % 4) + 1}`}>
-              <p className="addon-label">{item.label}</p>
+              <p className="addon-label">
+                <DiamondIcon size={4} className="addon-label-diamond" />
+                {item.label}
+              </p>
               <h3 className="addon-name">{item.name}</h3>
               <p className="addon-desc">{item.desc}</p>
             </div>
@@ -204,11 +211,12 @@ export default function Packages() {
                 className="accordion-header"
                 onClick={() => setOpenAccordion(openAccordion === i ? null : i)}
               >
-                <span className="accordion-title">{item.title}</span>
+                <span className="accordion-title">
+                  <DiamondIcon size={5} className="accordion-title-diamond" />
+                  {item.title}
+                </span>
                 <span className={`accordion-icon${openAccordion === i ? " open" : ""}`}>
-                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-                    <polyline points="6 9 12 15 18 9" />
-                  </svg>
+                  <ChevronDownIcon size={17} />
                 </span>
               </button>
               <div className={`accordion-body${openAccordion === i ? " open" : ""}`}>

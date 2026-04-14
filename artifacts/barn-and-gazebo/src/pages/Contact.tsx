@@ -1,4 +1,5 @@
 import { useState, useRef, useEffect } from "react";
+import { LocationIcon, PhoneIcon, MailIcon, ClockIcon, MapPinIcon, DiamondIcon } from "@/components/Icons";
 
 interface FormData {
   firstName: string;
@@ -82,6 +83,29 @@ export default function Contact() {
     setSubmitted(true);
   };
 
+  const contactItems = [
+    {
+      icon: <LocationIcon size={17} />,
+      label: "Address",
+      value: "The Barn and Gazebo\nSalem, Ohio 44460",
+    },
+    {
+      icon: <PhoneIcon size={17} />,
+      label: "Phone",
+      value: "(330) 000-0000",
+    },
+    {
+      icon: <MailIcon size={17} />,
+      label: "Email",
+      value: "info@barnandgazebo.com",
+    },
+    {
+      icon: <ClockIcon size={17} />,
+      label: "Tours",
+      value: "By Appointment\nMonday–Saturday",
+    },
+  ];
+
   return (
     <main>
       {/* HERO */}
@@ -116,47 +140,7 @@ export default function Contact() {
           <div className="gold-rule reveal" style={{ width: 40, marginTop: 20 }} />
 
           <div style={{ marginTop: 36 }}>
-            {[
-              {
-                icon: (
-                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
-                    <circle cx="12" cy="10" r="3" />
-                  </svg>
-                ),
-                label: "Address",
-                value: "The Barn and Gazebo\nSalem, Ohio 44460",
-              },
-              {
-                icon: (
-                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-                    <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 14 19.79 19.79 0 0 1 1.61 5.46 2 2 0 0 1 3.59 3.26h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 10.41a16 16 0 0 0 6 6l.92-.92a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 21.73 17z" />
-                  </svg>
-                ),
-                label: "Phone",
-                value: "(330) 000-0000",
-              },
-              {
-                icon: (
-                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-                    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
-                    <polyline points="22,6 12,13 2,6" />
-                  </svg>
-                ),
-                label: "Email",
-                value: "info@barnandgazebo.com",
-              },
-              {
-                icon: (
-                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-                    <circle cx="12" cy="12" r="10" />
-                    <polyline points="12 6 12 12 16 14" />
-                  </svg>
-                ),
-                label: "Tours",
-                value: "By Appointment\nMonday–Saturday",
-              },
-            ].map((item) => (
+            {contactItems.map((item) => (
               <div key={item.label} className="contact-info-block reveal">
                 <div className="contact-info-icon">{item.icon}</div>
                 <div>
@@ -167,18 +151,16 @@ export default function Contact() {
             ))}
           </div>
 
-          {/* Map placeholder */}
-          {/* Replace with Google Maps embed */}
           <div className="map-placeholder reveal">
-            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="var(--color-border)" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round">
-              <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
-              <circle cx="12" cy="10" r="3" />
-            </svg>
+            <MapPinIcon size={28} className="map-placeholder-icon" />
             <p className="map-placeholder-text">Map Coming Soon</p>
             <p className="map-placeholder-sub">Salem, Ohio 44460</p>
           </div>
 
           <div className="contact-testimonial reveal">
+            <div className="contact-testimonial-ornament">
+              <DiamondIcon size={6} className="contact-testimonial-diamond" />
+            </div>
             <p className="contact-testimonial-quote">
               "We almost didn't call. We're so glad we did. The moment we turned down the drive, we knew — and we had not felt certain about anything in six months of searching."
             </p>
@@ -197,6 +179,7 @@ export default function Contact() {
 
           {submitted ? (
             <div className="form-success" ref={successRef}>
+              <DiamondIcon size={20} className="form-success-diamond" />
               <h3 className="form-success-title">Thank you, {form.firstName}.</h3>
               <p className="form-success-text">
                 We have received your inquiry and will be in touch within 48 hours.

@@ -1,5 +1,6 @@
 import { useEffect, useRef } from "react";
 import { useLocation } from "wouter";
+import { DiamondIcon, StarIcon, ArrowRightIcon } from "@/components/Icons";
 
 export default function Home() {
   const [, navigate] = useLocation();
@@ -69,9 +70,7 @@ export default function Home() {
 
         <div className="hero-bottom-line" />
         <div className="scroll-indicator" aria-label="Scroll down">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-            <polyline points="6 9 12 15 18 9" />
-          </svg>
+          <DiamondIcon size={8} className="scroll-indicator-diamond" />
         </div>
       </section>
 
@@ -86,6 +85,7 @@ export default function Home() {
           ].map((stat, i) => (
             <div key={stat.label} className={`stat-item reveal reveal-delay-${i + 1}`}>
               <span className="stat-number">{stat.num}</span>
+              <span className="stat-divider-diamond"><DiamondIcon size={5} /></span>
               <span className="stat-label">{stat.label}</span>
             </div>
           ))}
@@ -108,18 +108,18 @@ export default function Home() {
           </p>
           <button className="editorial-link reveal mt-36px" onClick={() => navigate("/venue")}>
             Discover the full story
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-              <line x1="5" y1="12" x2="19" y2="12" />
-              <polyline points="12 5 19 12 12 19" />
-            </svg>
+            <ArrowRightIcon size={13} />
           </button>
         </div>
-        <div
-          className="editorial-image-col"
-          style={{
-            backgroundImage: "url('https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=900&q=90')",
-          }}
-        />
+        <div className="editorial-image-col editorial-image-col--enhanced">
+          <div
+            className="editorial-image-inner"
+            style={{
+              backgroundImage: "url('https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=900&q=90')",
+            }}
+          />
+          <div className="editorial-image-frame" />
+        </div>
       </section>
 
       {/* FEATURE PILLARS */}
@@ -152,9 +152,13 @@ export default function Home() {
             <div key={card.title} className={`pillar-card reveal reveal-delay-${i + 1}`}>
               <div className="pillar-image">
                 <img src={card.img} alt={card.title} loading="lazy" decoding="async" />
+                <div className="pillar-image-overlay" />
               </div>
               <div className="pillar-body">
-                <p className="pillar-label">{card.label}</p>
+                <p className="pillar-label">
+                  <DiamondIcon size={5} className="pillar-label-diamond" />
+                  {card.label}
+                </p>
                 <h3 className="pillar-title">{card.title}</h3>
                 <p className="pillar-text">{card.text}</p>
               </div>
@@ -173,7 +177,9 @@ export default function Home() {
         />
         <div className="quote-break-overlay" />
         <div className="quote-break-content reveal">
-          <span className="quote-mark">"</span>
+          <div className="quote-ornament">
+            <DiamondIcon size={7} className="quote-ornament-diamond" />
+          </div>
           <p className="quote-text">
             We drove past a hundred venues before we turned down the pine-lined drive. We never looked at another after that.
           </p>
@@ -251,15 +257,15 @@ export default function Home() {
               <p className="package-price-note">starting price</p>
               <div className="package-features">
                 {pkg.features.map((f) => (
-                  <div key={f} className="package-feature">{f}</div>
+                  <div key={f} className="package-feature">
+                    <DiamondIcon size={6} className="package-feature-icon" />
+                    <span>{f}</span>
+                  </div>
                 ))}
               </div>
               <button className="package-link" onClick={() => navigate("/packages")}>
                 Learn More
-                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-                  <line x1="5" y1="12" x2="19" y2="12" />
-                  <polyline points="12 5 19 12 12 19" />
-                </svg>
+                <ArrowRightIcon size={12} />
               </button>
             </div>
           ))}
@@ -298,7 +304,9 @@ export default function Home() {
           ].map((img, i) => (
             <div key={i} className="gallery-item" onClick={() => navigate("/gallery")}>
               <img src={img.src} alt={img.alt} loading="lazy" decoding="async" />
-              <div className="gallery-item-overlay" />
+              <div className="gallery-item-overlay">
+                <DiamondIcon size={18} className="gallery-item-icon" />
+              </div>
             </div>
           ))}
         </div>
@@ -329,11 +337,14 @@ export default function Home() {
             <div key={i} className={`testimonial-item reveal reveal-delay-${i + 1}`}>
               <div className="testimonial-stars">
                 {[...Array(5)].map((_, s) => (
-                  <div key={s} className="testimonial-star" />
+                  <StarIcon key={s} size={13} className="testimonial-star-svg" />
                 ))}
               </div>
               <p className="testimonial-quote">{t.quote}</p>
-              <p className="testimonial-attribution">{t.attribution}</p>
+              <div className="testimonial-footer">
+                <DiamondIcon size={5} className="testimonial-footer-diamond" />
+                <p className="testimonial-attribution">{t.attribution}</p>
+              </div>
             </div>
           ))}
         </div>
@@ -372,9 +383,13 @@ export default function Home() {
             <div key={i} className={`journal-card reveal reveal-delay-${i + 1}`}>
               <div className="journal-card-image">
                 <img src={post.img} alt={post.title} loading="lazy" decoding="async" />
+                <div className="journal-card-image-overlay" />
               </div>
               <div className="journal-card-body">
-                <p className="journal-card-category">{post.category}</p>
+                <p className="journal-card-category">
+                  <DiamondIcon size={4} className="journal-card-category-diamond" />
+                  {post.category}
+                </p>
                 <h3 className="journal-card-title">{post.title}</h3>
                 <p className="journal-card-excerpt">{post.excerpt}</p>
                 <p className="journal-card-meta">{post.meta}</p>
