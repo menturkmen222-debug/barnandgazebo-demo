@@ -43,12 +43,6 @@ export default function Home() {
         />
         <div className="hero-overlay" />
 
-        <div className="hero-badge">
-          <span className="hero-badge-line" />
-          <span className="hero-badge-text">Est. 1880</span>
-          <span className="hero-badge-line" />
-        </div>
-
         <div className="hero-content">
           <div className="hero-eyebrow">
             <span className="hero-eyebrow-line" />
@@ -71,19 +65,6 @@ export default function Home() {
               Explore the Venue
             </button>
           </div>
-        </div>
-
-        <div className="hero-stats-strip">
-          {[
-            { num: "1880", label: "Est." },
-            { num: "40K+", label: "Pine Trees" },
-            { num: "350", label: "Guests" },
-          ].map((s, i) => (
-            <div key={i} className="hero-stat">
-              <span className="hero-stat-num">{s.num}</span>
-              <span className="hero-stat-label">{s.label}</span>
-            </div>
-          ))}
         </div>
 
         <div className="hero-bottom-line" />
