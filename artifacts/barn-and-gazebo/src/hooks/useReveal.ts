@@ -14,15 +14,21 @@ export function useReveal() {
           }
         });
       },
-      { threshold: 0.12, rootMargin: "0px 0px -60px 0px" }
+      { threshold: 0.1, rootMargin: "0px 0px -48px 0px" }
     );
 
-    const elements = document.querySelectorAll(
-      ".reveal, .reveal-left, .reveal-right"
-    );
-    elements.forEach((el) => observer.observe(el));
+    const observe = () => {
+      const elements = document.querySelectorAll(
+        ".reveal:not(.visible), .reveal-left:not(.visible), .reveal-right:not(.visible)"
+      );
+      elements.forEach((el) => observer.observe(el));
+    };
+
+    observe();
+    const timer = setTimeout(observe, 80);
 
     return () => {
+      clearTimeout(timer);
       observer.disconnect();
     };
   }, [location]);

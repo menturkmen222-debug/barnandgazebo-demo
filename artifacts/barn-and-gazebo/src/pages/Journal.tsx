@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import { useLocation } from "wouter";
+import { DiamondIcon, ArrowRightIcon } from "@/components/Icons";
 
 const featuredPost = {
   img: "https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=1200&q=90",
@@ -85,13 +86,10 @@ export default function Journal() {
 
   return (
     <main style={{ background: "var(--color-bg)" }}>
-      {/* HERO */}
       <section className="hero hero-55">
         <div
           className="hero-bg parallax-bg"
-          style={{
-            backgroundImage: "url('https://images.unsplash.com/photo-1529636798458-92182e662485?auto=format&fit=crop&w=1920&q=90')",
-          }}
+          style={{ backgroundImage: "url('https://images.unsplash.com/photo-1529636798458-92182e662485?auto=format&fit=crop&w=1920&q=90')" }}
         />
         <div className="hero-overlay" />
         <div className="hero-content page-hero-content">
@@ -107,15 +105,17 @@ export default function Journal() {
         <div className="hero-bottom-line" />
       </section>
 
-      {/* FEATURED POST */}
-      <div style={{ background: "var(--color-bg)", padding: "0 80px" }}>
+      <div className="journal-featured-wrap">
         <div className="journal-featured reveal">
           <div
             className="journal-featured-image"
             style={{ backgroundImage: `url('${featuredPost.img}')` }}
           />
           <div className="journal-featured-body">
-            <p className="journal-card-category">{featuredPost.category}</p>
+            <p className="journal-card-category">
+              <DiamondIcon size={5} className="journal-card-category-diamond" />
+              {featuredPost.category}
+            </p>
             <h2 className="journal-featured-title">{featuredPost.title}</h2>
             <p className="journal-featured-excerpt">{featuredPost.excerpt}</p>
             <p className="journal-card-meta" style={{ marginTop: "var(--space-6)" }}>
@@ -123,28 +123,31 @@ export default function Journal() {
             </p>
             <button className="editorial-link" style={{ marginTop: 24 }}>
               Read the Story
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-                <line x1="5" y1="12" x2="19" y2="12" />
-                <polyline points="12 5 19 12 12 19" />
-              </svg>
+              <ArrowRightIcon size={14} />
             </button>
           </div>
         </div>
       </div>
 
-      {/* POSTS GRID + SIDEBAR */}
       <div className="journal-page-grid">
         <div className="journal-posts-grid">
           {posts.map((post, i) => (
             <div key={i} className={`journal-card reveal reveal-delay-${(i % 3) + 1}`}>
               <div className="journal-card-image">
                 <img src={post.img} alt={post.title} loading="lazy" decoding="async" />
+                <div className="journal-card-image-overlay" />
               </div>
               <div className="journal-card-body">
-                <p className="journal-card-category">{post.category}</p>
+                <p className="journal-card-category">
+                  <DiamondIcon size={4} className="journal-card-category-diamond" />
+                  {post.category}
+                </p>
                 <h3 className="journal-card-title">{post.title}</h3>
                 <p className="journal-card-excerpt">{post.excerpt}</p>
                 <p className="journal-card-meta">{post.date} — {post.readTime}</p>
+                <button className="journal-read-link">
+                  Read <ArrowRightIcon size={11} />
+                </button>
               </div>
             </div>
           ))}
@@ -155,7 +158,10 @@ export default function Journal() {
             <p className="sidebar-label">Categories</p>
             {categories.map((cat) => (
               <div key={cat.name} className="sidebar-cat">
-                <span>{cat.name}</span>
+                <span className="sidebar-cat-name">
+                  <DiamondIcon size={4} className="sidebar-cat-diamond" />
+                  {cat.name}
+                </span>
                 <span className="sidebar-cat-count">{cat.count}</span>
               </div>
             ))}
@@ -164,13 +170,16 @@ export default function Journal() {
           <div className="sidebar-section">
             <p className="sidebar-label">Recent Posts</p>
             {recentPosts.map((title) => (
-              <div key={title} className="sidebar-recent-post">{title}</div>
+              <div key={title} className="sidebar-recent-post">
+                <DiamondIcon size={3} className="sidebar-recent-diamond" />
+                {title}
+              </div>
             ))}
           </div>
 
           <div className="sidebar-section">
             <p className="sidebar-label">Subscribe</p>
-            <p style={{ fontFamily: "var(--font-body)", fontWeight: 300, fontSize: "0.82rem", color: "var(--color-text-secondary)", lineHeight: 1.6, marginBottom: 16 }}>
+            <p className="sidebar-subscribe-desc">
               Receive new stories and planning guides directly to your inbox.
             </p>
             <input

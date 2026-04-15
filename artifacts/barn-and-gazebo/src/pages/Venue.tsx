@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import { useLocation } from "wouter";
+import { DiamondIcon } from "@/components/Icons";
 
 export default function Venue() {
   const [, navigate] = useLocation();
@@ -10,13 +11,10 @@ export default function Venue() {
 
   return (
     <main>
-      {/* HERO */}
       <section className="hero hero-70">
         <div
           className="hero-bg parallax-bg"
-          style={{
-            backgroundImage: "url('https://images.unsplash.com/photo-1511795409834-ef04bbd61622?auto=format&fit=crop&w=1920&q=90')",
-          }}
+          style={{ backgroundImage: "url('https://images.unsplash.com/photo-1511795409834-ef04bbd61622?auto=format&fit=crop&w=1920&q=90')" }}
         />
         <div className="hero-overlay" />
         <div className="hero-content page-hero-content">
@@ -32,7 +30,6 @@ export default function Venue() {
         <div className="hero-bottom-line" />
       </section>
 
-      {/* THE BARN — ALTERNATING */}
       <section className="alternating-section">
         <div className="alternating-text">
           <p className="eyebrow reveal">The Main Hall</p>
@@ -49,18 +46,14 @@ export default function Venue() {
         </div>
         <div
           className="alternating-image"
-          style={{
-            backgroundImage: "url('https://images.unsplash.com/photo-1520854221256-17451cc331bf?auto=format&fit=crop&w=900&q=90')",
-          }}
+          style={{ backgroundImage: "url('https://images.unsplash.com/photo-1520854221256-17451cc331bf?auto=format&fit=crop&w=900&q=90')" }}
         />
       </section>
 
       <section className="alternating-section reverse">
         <div
           className="alternating-image"
-          style={{
-            backgroundImage: "url('https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=900&q=90')",
-          }}
+          style={{ backgroundImage: "url('https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=900&q=90')" }}
         />
         <div className="alternating-text">
           <p className="eyebrow reveal">The Loft Level</p>
@@ -93,51 +86,49 @@ export default function Venue() {
         </div>
         <div
           className="alternating-image"
-          style={{
-            backgroundImage: "url('https://images.unsplash.com/photo-1547637589-f54c34f5d7a4?auto=format&fit=crop&w=900&q=90')",
-          }}
+          style={{ backgroundImage: "url('https://images.unsplash.com/photo-1547637589-f54c34f5d7a4?auto=format&fit=crop&w=900&q=90')" }}
         />
       </section>
 
-      {/* GAZEBO SECTION */}
       <section className="quote-break" style={{ height: "auto", padding: "100px 80px" }}>
         <div
           className="quote-break-bg parallax-bg"
-          style={{
-            backgroundImage: "url('https://images.unsplash.com/photo-1487528278747-ba99ed528ebc?auto=format&fit=crop&w=1920&q=90')",
-          }}
+          style={{ backgroundImage: "url('https://images.unsplash.com/photo-1487528278747-ba99ed528ebc?auto=format&fit=crop&w=1920&q=90')" }}
         />
         <div className="quote-break-overlay" />
         <div className="quote-break-content reveal" style={{ maxWidth: 800 }}>
+          <div className="quote-ornament">
+            <DiamondIcon size={8} className="quote-ornament-diamond" />
+          </div>
           <p className="eyebrow" style={{ color: "var(--color-gold)", marginBottom: "var(--space-4)" }}>The Ceremony Space</p>
           <h2 style={{ fontFamily: "var(--font-display)", fontWeight: 300, fontSize: "2.5rem", color: "var(--color-cream)", marginBottom: "var(--space-6)", lineHeight: 1.1 }}>
             The Gazebo
           </h2>
-          <p className="quote-text" style={{ fontSize: "1.15rem" }}>
-            Standing where the treeline opens to Ohio sky, the outdoor gazebo frames your ceremony in pure natural architecture. Pine-filtered light shifts through the afternoon in patterns that no photographer could plan and no designer could improve upon. The gazebo accommodates up to 180 guests in ceremony configuration and is breathtaking in every season — surrounded by early spring blooms, full summer green, autumn fire, or the stillness of winter snow on pine boughs.
+          <p className="quote-text" style={{ fontSize: "1.1rem" }}>
+            Standing where the treeline opens to Ohio sky, the outdoor gazebo frames your ceremony in pure natural architecture. Pine-filtered light shifts through the afternoon in patterns that no photographer could plan and no designer could improve upon. The gazebo accommodates up to 180 guests in ceremony configuration and is breathtaking in every season.
           </p>
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: "32px", marginTop: "48px", textAlign: "left" }}>
+          <div className="gazebo-specs-row">
             {[
               { label: "Ceremony Capacity", value: "Up to 180 guests" },
               { label: "Best Seasons", value: "Spring, Summer, Autumn" },
               { label: "Weather Contingency", value: "Barn main hall backup" },
             ].map((spec) => (
-              <div key={spec.label}>
-                <p style={{ fontFamily: "var(--font-body)", fontSize: "0.65rem", letterSpacing: "0.18em", textTransform: "uppercase", color: "var(--color-gold)", marginBottom: "8px" }}>{spec.label}</p>
-                <p style={{ fontFamily: "var(--font-body)", fontWeight: 300, fontSize: "0.9rem", color: "var(--color-cream-dim)" }}>{spec.value}</p>
+              <div key={spec.label} className="gazebo-spec-item">
+                <DiamondIcon size={4} className="gazebo-spec-diamond" />
+                <p className="gazebo-spec-label">{spec.label}</p>
+                <p className="gazebo-spec-value">{spec.value}</p>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* GROUNDS */}
       <section className="grounds-section">
         <div className="text-center reveal">
           <p className="eyebrow">The Property</p>
           <h2 className="section-h2 mt-4">Forty Thousand Pines</h2>
           <p style={{ fontFamily: "var(--font-body)", fontWeight: 300, fontSize: "1rem", lineHeight: 1.85, color: "var(--color-text-secondary)", maxWidth: 680, margin: "24px auto 0" }}>
-            The grounds surrounding the barn encompass rolling Ohio countryside and over forty thousand mature pine trees — a living, breathing backdrop that changes with every hour of light and every season of the year. Guests often remark that walking the pine paths between ceremony and reception feels like stepping into a world apart from ordinary time.
+            The grounds surrounding the barn encompass rolling Ohio countryside and over forty thousand mature pine trees — a living, breathing backdrop that changes with every hour of light and every season of the year.
           </p>
         </div>
         <div className="grounds-grid">
@@ -153,7 +144,6 @@ export default function Venue() {
         </div>
       </section>
 
-      {/* SPECS TABLE */}
       <section className="venue-specs">
         <div className="text-center reveal">
           <p className="eyebrow">At a Glance</p>
@@ -175,14 +165,16 @@ export default function Venue() {
             { label: "Handicap Accessible", value: "Yes — full accessibility" },
           ].map((row) => (
             <div key={row.label} className="specs-row">
-              <span className="specs-label">{row.label}</span>
+              <span className="specs-label">
+                <DiamondIcon size={4} className="specs-row-diamond" />
+                {row.label}
+              </span>
               <span className="specs-value">{row.value}</span>
             </div>
           ))}
         </div>
       </section>
 
-      {/* CTA STRIP */}
       <section className="cta-strip">
         <div className="cta-strip-inner">
           <div>

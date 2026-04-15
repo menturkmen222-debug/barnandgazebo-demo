@@ -18,13 +18,14 @@ import Contact from "@/pages/Contact";
 function ScrollToTop() {
   const [location] = useLocation();
   useEffect(() => {
-    window.scrollTo(0, 0);
+    window.scrollTo({ top: 0, behavior: "instant" as ScrollBehavior });
   }, [location]);
   return null;
 }
 
 function AppInner() {
   const { isOpen, open, close } = useMobileMenu();
+  const [location] = useLocation();
   useReveal();
   useParallax();
 
@@ -33,17 +34,19 @@ function AppInner() {
       <Nav onMenuOpen={open} />
       <MobileMenu isOpen={isOpen} onClose={close} />
       <ScrollToTop />
-      <Switch>
-        <Route path="/" component={Home} />
-        <Route path="/venue" component={Venue} />
-        <Route path="/packages" component={Packages} />
-        <Route path="/gallery" component={Gallery} />
-        <Route path="/availability" component={Availability} />
-        <Route path="/journal" component={Journal} />
-        <Route path="/contact" component={Contact} />
-        <Route component={NotFound} />
-      </Switch>
-      <Footer />
+      <div key={location} className="page-transition">
+        <Switch>
+          <Route path="/" component={Home} />
+          <Route path="/venue" component={Venue} />
+          <Route path="/packages" component={Packages} />
+          <Route path="/gallery" component={Gallery} />
+          <Route path="/availability" component={Availability} />
+          <Route path="/journal" component={Journal} />
+          <Route path="/contact" component={Contact} />
+          <Route component={NotFound} />
+        </Switch>
+        <Footer />
+      </div>
     </>
   );
 }

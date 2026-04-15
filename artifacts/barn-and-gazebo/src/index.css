@@ -3858,3 +3858,243 @@ body {
   display: block;
 }
 
+/* ===========================
+   PAGE TRANSITIONS
+   =========================== */
+@keyframes pageEnter {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.page-transition {
+  animation: pageEnter 480ms cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* ===========================
+   REVEAL ANIMATION UPGRADE
+   =========================== */
+.reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 700ms cubic-bezier(0.16, 1, 0.3, 1),
+              transform 700ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.reveal-delay-1 { transition-delay: 90ms; }
+.reveal-delay-2 { transition-delay: 180ms; }
+.reveal-delay-3 { transition-delay: 270ms; }
+.reveal-delay-4 { transition-delay: 360ms; }
+
+/* ===========================
+   GALLERY MASONRY ICONS
+   =========================== */
+.masonry-overlay {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.masonry-overlay-diamond {
+  color: var(--color-cream);
+  opacity: 0;
+  transform: rotate(45deg) scale(0.4);
+  transition: opacity 380ms ease, transform 380ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.masonry-item:hover .masonry-overlay-diamond {
+  opacity: 0.85;
+  transform: rotate(0deg) scale(1);
+}
+
+.masonry-overlay-caption {
+  font-family: var(--font-body);
+  font-weight: var(--weight-light);
+  font-size: 0.72rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--color-cream);
+  opacity: 0;
+  transform: translateY(8px);
+  transition: opacity 380ms ease 80ms, transform 380ms ease 80ms;
+}
+
+.masonry-item:hover .masonry-overlay-caption {
+  opacity: 0.75;
+  transform: translateY(0);
+}
+
+/* ===========================
+   FILTER BAR DIAMOND
+   =========================== */
+.filter-btn {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.filter-btn-diamond {
+  color: currentColor;
+  flex-shrink: 0;
+}
+
+/* ===========================
+   LIGHTBOX UPGRADES
+   =========================== */
+.lightbox-prev,
+.lightbox-next {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ===========================
+   JOURNAL UPGRADES
+   =========================== */
+.journal-featured-wrap {
+  background: var(--color-bg);
+  padding: 0 80px;
+}
+
+.journal-read-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--font-body);
+  font-weight: var(--weight-regular);
+  font-size: 0.72rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--color-gold);
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  margin-top: 20px;
+  transition: gap 200ms ease, opacity 200ms ease;
+}
+
+.journal-read-link:hover {
+  gap: 10px;
+  opacity: 0.8;
+}
+
+.sidebar-cat-name {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+}
+
+.sidebar-cat-diamond {
+  color: var(--color-gold);
+  flex-shrink: 0;
+  opacity: 0.6;
+}
+
+.sidebar-recent-post {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+}
+
+.sidebar-recent-diamond {
+  color: var(--color-gold);
+  flex-shrink: 0;
+  margin-top: 5px;
+  opacity: 0.6;
+}
+
+.sidebar-subscribe-desc {
+  font-family: var(--font-body);
+  font-weight: var(--weight-light);
+  font-size: 0.82rem;
+  color: var(--color-text-secondary);
+  line-height: 1.6;
+  margin-bottom: 16px;
+}
+
+/* ===========================
+   VENUE SPECS ROW DIAMOND
+   =========================== */
+.specs-label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.specs-row-diamond {
+  color: var(--color-gold);
+  flex-shrink: 0;
+  opacity: 0.7;
+}
+
+/* ===========================
+   GAZEBO SPEC ROW
+   =========================== */
+.gazebo-specs-row {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
+  margin-top: 48px;
+  text-align: left;
+}
+
+.gazebo-spec-item {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.gazebo-spec-diamond {
+  color: var(--color-gold);
+  opacity: 0.6;
+}
+
+.gazebo-spec-label {
+  font-family: var(--font-body);
+  font-size: 0.65rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--color-gold);
+  margin: 0;
+}
+
+.gazebo-spec-value {
+  font-family: var(--font-body);
+  font-weight: var(--weight-light);
+  font-size: 0.9rem;
+  color: var(--color-cream-dim);
+  margin: 0;
+}
+
+@media (max-width: 768px) {
+  .gazebo-specs-row {
+    grid-template-columns: 1fr;
+    gap: 20px;
+    margin-top: 32px;
+  }
+
+  .journal-featured-wrap {
+    padding: 0 24px;
+  }
+}
+
+@media (max-width: 480px) {
+  .journal-featured-wrap {
+    padding: 0 20px;
+  }
+}
+
+
